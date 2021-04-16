@@ -2,10 +2,15 @@
   "name": "react-native-style-utils",
   "version": "1.0.0",
   "description": "useStyle, useFlatStyle and findStyle helper functions for the React Native StyleSheet API",
-  "main": "index.ts",
+  "main": "src/index.ts",
+  "types": "dist/types",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "files": [
+    "src",
+    "dist"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mrousavy/react-native-style-utils.git"
@@ -28,5 +33,30 @@
   "bugs": {
     "url": "https://github.com/mrousavy/react-native-style-utils/issues"
   },
-  "homepage": "https://github.com/mrousavy/react-native-style-utils#readme"
+  "homepage": "https://github.com/mrousavy/react-native-style-utils#readme",
+  "peerDependencies": {
+    "react": "*",
+    "react-native": "*"
+  },
+  "devDependencies": {
+    "@react-native-community/eslint-config": "^2.0.0",
+    "@react-native-community/eslint-plugin": "^1.1.0",
+    "@testing-library/react-hooks": "^5.0.3",
+    "@types/react": "^17.0.0",
+    "@types/react-native": "^0.63.46",
+    "@typescript-eslint/eslint-plugin": "^4.14.1",
+    "@typescript-eslint/parser": "^4.14.1",
+    "eslint": "^7.19.0",
+    "eslint-config-prettier": "^7.2.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-react": "^7.22.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "eslint-plugin-react-native": "^3.10.0",
+    "jest": "^26.6.3",
+    "prettier": "^2.2.1",
+    "react-native": "^0.63.4",
+    "react-test-renderer": "^17.0.1",
+    "ts-jest": "^26.5.1",
+    "typescript": "^4.1.3"
+  }
 }

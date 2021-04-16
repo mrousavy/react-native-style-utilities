@@ -1,0 +1,29 @@
+
+{
+	"compilerOptions": {
+		"target": "ES2019",
+		"module": "commonjs",
+		"outDir": "dist",
+		"declaration": true,
+		"allowJs": true,
+		"allowSyntheticDefaultImports": true,
+		"esModuleInterop": true,
+		"isolatedModules": true,
+		"jsx": "react-native",
+		"lib": ["ES2019"],
+		"moduleResolution": "node",
+		"noEmit": true,
+		"strict": true,
+		"skipLibCheck": true,
+		"removeComments": true,
+		"resolveJsonModule": true,
+		"noUncheckedIndexedAccess": true,
+		"incremental": true,
+		"pretty": true
+	},
+	"exclude": [
+		"node_modules",
+		"@types",
+		"dist"
+	]
+}
