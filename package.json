@@ -1,5 +1,5 @@
 {
-  "name": "react-native-style-utils",
+  "name": "react-native-style-utilities",
   "version": "1.0.0",
   "description": "useStyle, useFlatStyle and findStyle helper functions for the React Native StyleSheet API",
   "main": "src/index.ts",
@@ -13,7 +13,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mrousavy/react-native-style-utils.git"
+    "url": "git+https://github.com/mrousavy/react-native-style-utilities.git"
   },
   "keywords": [
     "react",
@@ -31,9 +31,9 @@
   "author": "Marc Rousavy",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mrousavy/react-native-style-utils/issues"
+    "url": "https://github.com/mrousavy/react-native-style-utilities/issues"
   },
-  "homepage": "https://github.com/mrousavy/react-native-style-utils#readme",
+  "homepage": "https://github.com/mrousavy/react-native-style-utilities#readme",
   "peerDependencies": {
     "react": "*",
     "react-native": "*"

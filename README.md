@@ -1,8 +1,8 @@
 <div align="center">
-  <h1>react-native-style-utils</h1>
+  <h1>react-native-style-utilities</h1>
   <p>Fully typed hooks and utility functions for the React Native StyleSheet API</p>
   <br />
-  <pre align="center">npm i <a href="https://www.npmjs.com/package/react-native-style-utils">react-native-style-utils</a></pre>
+  <pre align="center">npm i <a href="https://www.npmjs.com/package/react-native-style-utilities">react-native-style-utilities</a></pre>
   <br />
 </div>
 
