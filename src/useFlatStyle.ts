@@ -1,7 +1,6 @@
 import { DependencyList, useMemo } from "react";
 import {
   ImageStyle,
-  RegisteredStyle,
   StyleProp,
   StyleSheet,
   TextStyle,
@@ -14,22 +13,22 @@ import {
  * @param deps The dependencies to trigger memoization re-evaluation
  * @example
  *
- * const style = useStyle(() => ({ height: someDynamicValue }), [someDynamicValue])
+ * // simple object styles, same as with `useStyle`
+ * const style1 = useFlatStyle(() => ({ height: someDynamicValue }), [someDynamicValue])
+ *
+ * // array styles get flattened into a single object
+ * const style2 = useFlatStyle(
+ *   () => [styles.container, props.style, { height: someDynamicValue }],
+ *   [props.style, someDynamicValue]
+ * );
+ * Array.isArray(style2); // => false
  */
- export const useFlatStyle = <
- TStyle extends ViewStyle | TextStyle | ImageStyle,
- TOutput extends StyleProp<TStyle>
+export const useFlatStyle = <
+  TStyle extends ViewStyle | TextStyle | ImageStyle,
+  TOutput extends StyleProp<TStyle>
 >(
- styleFactory: () => TOutput,
- deps?: DependencyList
+  styleFactory: () => TOutput,
+  deps?: DependencyList
 ): TStyle extends (infer U)[] ? U : TStyle =>
- // eslint-disable-next-line react-hooks/exhaustive-deps
- useMemo(() => StyleSheet.flatten(styleFactory()), deps);
-
-const isRegisteredStyle = <T>(
- style: T | unknown
-): style is RegisteredStyle<T> => {
- if (typeof style === "object" && style != null)
-   return "__registeredStyleBrand" in style;
- else return false;
-};
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useMemo(() => StyleSheet.flatten(styleFactory()), deps);

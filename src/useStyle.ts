@@ -1,10 +1,5 @@
 import { DependencyList, useMemo } from "react";
-import {
-  ImageStyle,
-  StyleProp,
-  TextStyle,
-  ViewStyle,
-} from "react-native";
+import { ImageStyle, StyleProp, TextStyle, ViewStyle } from "react-native";
 
 /**
  * A hook to memoize a style. Uses `ViewStyle` per default, but can be used with other styles deriving from `FlexStyle` as well, such as `TextStyle`.
@@ -12,14 +7,21 @@ import {
  * @param deps The dependencies to trigger memoization re-evaluation
  * @example
  *
- * const style = useStyle(() => ({ height: someDynamicValue }), [someDynamicValue])
+ * // simple object styles
+ * const style1 = useStyle(() => ({ height: someDynamicValue }), [someDynamicValue])
+ *
+ * // array styles
+ * const style2 = useStyle(
+ *   () => [styles.container, props.style, { height: someDynamicValue }],
+ *   [props.style, someDynamicValue]
+ * );
  */
- export const useStyle = <
- TStyle extends ViewStyle | TextStyle | ImageStyle,
- TOutput extends StyleProp<TStyle>
+export const useStyle = <
+  TStyle extends ViewStyle | TextStyle | ImageStyle,
+  TOutput extends StyleProp<TStyle>
 >(
- styleFactory: () => TOutput,
- deps?: DependencyList
+  styleFactory: () => TOutput,
+  deps?: DependencyList
 ): TOutput =>
- // eslint-disable-next-line react-hooks/exhaustive-deps
- useMemo(styleFactory, deps);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useMemo(styleFactory, deps);

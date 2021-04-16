@@ -19,11 +19,13 @@
 		"resolveJsonModule": true,
 		"noUncheckedIndexedAccess": true,
 		"incremental": true,
-		"pretty": true
+		"pretty": true,
 	},
 	"exclude": [
 		"node_modules",
 		"@types",
-		"dist"
+		"dist",
+		".eslintrc.js",
+		".prettierrc.js"
 	]
 }
