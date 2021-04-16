@@ -19,6 +19,9 @@ If you're using the [eslint-plugin-react-hooks](https://www.npmjs.com/package/es
 ],
 ```
 
+<br />
+<br />
+
 ## `useStyle`
 
 A hook to memoize dynamic styles.
@@ -64,6 +67,9 @@ const style = useStyle(
 return <View style={style} />
 ```
 
+<br />
+<br />
+
 ## `useFlatStyle`
 
 Same as `useStyle`, but flattens ("merges") the returned values into a simple object with [`StyleSheet.flatten(...)`](https://reactnative.dev/docs/stylesheet#flatten).
@@ -83,6 +89,9 @@ const style2 = useFlatStyle(
 );
 style2.borderRadius // <-- works, will return 'number | undefined'
 ```
+
+<br />
+<br />
 
 ## `findStyle`
 
