@@ -1,7 +1,7 @@
 {
   "name": "react-native-style-utilities",
   "version": "1.0.1",
-  "description": "useStyle, useFlatStyle and findStyle helper functions for the React Native StyleSheet API",
+  "description": "Fully typed hooks and utility functions for the React Native StyleSheet API",
   "main": "dist/index",
   "types": "dist/index.d.ts",
   "react-native": "src/index",

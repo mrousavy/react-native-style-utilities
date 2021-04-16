@@ -5,6 +5,7 @@ import { ImageStyle, StyleProp, TextStyle, ViewStyle } from "react-native";
  * A hook to memoize a style. Uses `ViewStyle` per default, but can be used with other styles deriving from `FlexStyle` as well, such as `TextStyle`.
  * @param styleFactory The function that returns a style
  * @param deps The dependencies to trigger memoization re-evaluation
+ * @see ["Memoize!!! 💾 - a react (native) performance guide"](https://gist.github.com/mrousavy/0de7486814c655de8a110df5cef74ddc)
  * @example
  *
  * // simple object styles

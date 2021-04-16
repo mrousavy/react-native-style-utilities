@@ -6,10 +6,24 @@
   <br />
 </div>
 
+## ESLint Setup
+
+If you're using the [eslint-plugin-react-hooks](https://www.npmjs.com/package/eslint-plugin-react-hooks) plugin, add the following to your `.eslintrc.js`:
+
+```js
+"react-hooks/exhaustive-deps": [
+  "error",
+  {
+    additionalHooks: "(useStyle|useFlatStyle)",
+  },
+],
+```
 
 ## `useStyle`
 
 A hook to memoize dynamic styles.
+
+> See ["Memoize!!! 💾 - a react (native) performance guide"](https://gist.github.com/mrousavy/0de7486814c655de8a110df5cef74ddc)
 
 ### Objects
 
@@ -53,6 +67,8 @@ return <View style={style} />
 ## `useFlatStyle`
 
 Same as `useStyle`, but flattens ("merges") the returned values into a simple object with [`StyleSheet.flatten(...)`](https://reactnative.dev/docs/stylesheet#flatten).
+
+> See ["Memoize!!! 💾 - a react (native) performance guide"](https://gist.github.com/mrousavy/0de7486814c655de8a110df5cef74ddc)
 
 ```tsx
 const style1 = useStyle(
