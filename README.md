@@ -103,3 +103,57 @@ function Component({ style, ...props }) {
   const borderRadius = findStyle(style, "borderRadius") // <-- works, is 'number | undefined'
 }
 ```
+
+## `createStyles`
+
+A helper that is similar to `StyleSheet.create`, but allows passing `StyleProp` arrays as well as styles. This makes it easier to compose flat styles from helpers, while retaining all the types.
+
+```tsx
+// Define some helpers
+const flex = StyleSheet.create({
+  full: { flex: 1 },
+  row: { flexDirection: "row" } /* etc. */,
+});
+const padding = StyleSheet.create({
+  p4: { padding: 12 },
+  pr2: { paddingRight: 4 } /* etc. */,
+});
+
+// Compose into flat named styles, like StyleSheet.create
+const styles = createStyles({
+  header: [flex.row, padding.p4, padding.pr2],
+});
+
+styles.header;
+// Type: {
+//   readonly flexDirection: "row"
+//   readonly padding: number
+//   readonly paddingRight: number
+// }
+```
+
+### `createStyles` Caveats
+
+**Flattening:** Because this is flattening named styles, it has an initialization cost greater than `StyleSheet.create`. This should be used for composition in place of passing arrays to style props in components.
+
+**Using `as const` with `createStyles`**: Additionally, we recommend using `StyleSheet.create` or `createStyle` itself for creating helper objects. While you can use `as const` objects to get literal type information, it can cause type collisions when flattening, if two of the same keys are used:
+
+```tsx
+const paddingConst = {
+  p3: { padding: 8 },
+  p4: { padding: 12 },
+} as const;
+const paddingCreate = StyleSheet.create({
+  p3: { padding: 8 },
+  p4: { padding: 12 },
+});
+
+const constStyle = createStyles({ a: [paddingConst.p3] });
+constStyle.a; // Type: { readonly padding: 8 }
+
+const constStyleOops = createStyles({ a: [paddingConst.p3, paddingConst.p4] });
+constStyleOops.a; // Type: never
+
+const style = createStyles({ a: [paddingCreate.p3, paddingCreate.p4] });
+style.a; // Type: { readonly padding: number }
+```

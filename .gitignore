@@ -77,3 +77,6 @@ typings/
 
 # TypeScript output
 dist
+
+# JetBrains
+.idea

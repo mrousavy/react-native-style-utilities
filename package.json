@@ -44,8 +44,8 @@
     "@react-native-community/eslint-config": "^2.0.0",
     "@react-native-community/eslint-plugin": "^1.1.0",
     "@testing-library/react-hooks": "^5.0.3",
-    "@types/react": "^17.0.0",
-    "@types/react-native": "^0.63.46",
+    "@types/react": "^17.0.43",
+    "@types/react-native": "^0.67.3",
     "@typescript-eslint/eslint-plugin": "^4.22.0",
     "@typescript-eslint/parser": "^4.22.0",
     "eslint": "^7.24.0",
@@ -56,8 +56,9 @@
     "eslint-plugin-react-native": "^3.10.0",
     "jest": "^26.6.3",
     "prettier": "^2.2.1",
-    "react-native": "^0.63.4",
-    "react-test-renderer": "^17.0.1",
+    "react": "^18.0.0",
+    "react-native": "^0.68.0",
+    "react-test-renderer": "^18.0.0",
     "ts-jest": "^26.5.1",
     "typescript": "^4.1.3"
   }

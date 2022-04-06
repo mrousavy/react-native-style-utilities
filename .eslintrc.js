@@ -2,29 +2,16 @@ module.exports = {
   globals: {
     Logger: true,
   },
-  parserOptions: {
-    tsconfigRootDir: __dirname,
-    project: ["./tsconfig.json"],
-    ecmaFeatures: {
-      jsx: true
-    }
-  },
   root: true,
   env: {
-    "react-native/react-native": true
+    "react-native/react-native": true,
   },
   parser: "@typescript-eslint/parser",
-  plugins: [
-    "@typescript-eslint",
-    "prettier",
-    "react",
-    "react-native",
-  ],
+  plugins: ["@typescript-eslint", "prettier", "react", "react-native"],
   extends: [
     "@react-native-community",
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:@typescript-eslint/recommended-requiring-type-checking",
     "prettier/@typescript-eslint",
     "plugin:prettier/recommended",
   ],
@@ -37,7 +24,7 @@ module.exports = {
     "func-style": ["error", "expression"],
     "eslint-comments/no-unused-disable": "error",
     "no-console": "error",
-    "radix": "error",
+    radix: "error",
     "spaced-comment": [
       "error",
       "always",
@@ -57,7 +44,7 @@ module.exports = {
       // must be ignored since it conflicts with prettier
       { overrides: { "?": "ignore", ":": "ignore" } },
     ],
-    "eqeqeq": ["error", "always", { null: "never" }],
+    eqeqeq: ["error", "always", { null: "never" }],
 
     // dumb rules that are off so the much smarter typescript-eslint can use them
     "no-shadow": "off",
@@ -106,43 +93,7 @@ module.exports = {
     "@typescript-eslint/no-invalid-void-type": "error",
     "@typescript-eslint/no-extraneous-class": "error",
     "@typescript-eslint/no-floating-promises": "off",
-    "@typescript-eslint/require-await": "warn", // changes default severity
-    "@typescript-eslint/no-base-to-string": "error",
-    "@typescript-eslint/no-throw-literal": "error",
-    "@typescript-eslint/no-unnecessary-boolean-literal-compare": "error",
-    "@typescript-eslint/no-unnecessary-qualifier": "error",
-    "@typescript-eslint/no-unnecessary-type-arguments": "warn",
-    "@typescript-eslint/prefer-includes": "error",
-    "@typescript-eslint/prefer-nullish-coalescing": "warn",
-    "@typescript-eslint/prefer-readonly": "warn",
-    "@typescript-eslint/prefer-reduce-type-parameter": "warn",
-    "@typescript-eslint/prefer-string-starts-ends-with": "error",
-    "@typescript-eslint/promise-function-async": "error",
-    "@typescript-eslint/require-array-sort-compare": "warn",
-    "@typescript-eslint/switch-exhaustiveness-check": "warn",
-    "@typescript-eslint/unbound-method": "warn",
-    "@typescript-eslint/strict-boolean-expressions": [
-      "error",
-      {
-        allowString: false,
-        allowNullableObject: false,
-        allowNumber: false,
-        allowNullableBoolean: true,
-      },
-    ],
     "@typescript-eslint/no-non-null-assertion": "error",
-    "@typescript-eslint/no-unnecessary-condition": "error",
-
-    // "any" rules that _should_ be enabled but are too much work for us rn
-    "@typescript-eslint/no-unsafe-member-access": "warn",
-    "@typescript-eslint/restrict-template-expressions": [
-      "warn",
-      {
-        allowNumber: true,
-        allowBoolean: true,
-        allowNullish: true,
-      }
-    ],
 
     // react hooks
     "react-hooks/exhaustive-deps": [
@@ -155,4 +106,57 @@ module.exports = {
     // Prettier
     "prettier/prettier": "warn",
   },
+  // Rules requiring types
+  overrides: [
+    {
+      files: "src/**/*.+(ts|tsx)",
+      extends: [
+        "plugin:@typescript-eslint/recommended-requiring-type-checking",
+      ],
+      parserOptions: {
+        tsconfigRootDir: __dirname,
+        project: ["./tsconfig.json"],
+        ecmaFeatures: {
+          jsx: true,
+        },
+      },
+      rules: {
+        "@typescript-eslint/require-await": "warn", // changes default severity
+        "@typescript-eslint/no-base-to-string": "error",
+        "@typescript-eslint/no-throw-literal": "error",
+        "@typescript-eslint/no-unnecessary-boolean-literal-compare": "error",
+        "@typescript-eslint/no-unnecessary-qualifier": "error",
+        "@typescript-eslint/no-unnecessary-type-arguments": "warn",
+        "@typescript-eslint/prefer-includes": "error",
+        "@typescript-eslint/prefer-nullish-coalescing": "warn",
+        "@typescript-eslint/prefer-readonly": "warn",
+        "@typescript-eslint/prefer-reduce-type-parameter": "warn",
+        "@typescript-eslint/prefer-string-starts-ends-with": "error",
+        "@typescript-eslint/promise-function-async": "error",
+        "@typescript-eslint/require-array-sort-compare": "warn",
+        "@typescript-eslint/switch-exhaustiveness-check": "warn",
+        "@typescript-eslint/unbound-method": "warn",
+        "@typescript-eslint/strict-boolean-expressions": [
+          "error",
+          {
+            allowString: false,
+            allowNullableObject: false,
+            allowNumber: false,
+            allowNullableBoolean: true,
+          },
+        ],
+        "@typescript-eslint/no-unnecessary-condition": "error",
+        "@typescript-eslint/no-unsafe-member-access": "warn",
+        // "any" rules that _should_ be enabled but are too much work for us rn
+        "@typescript-eslint/restrict-template-expressions": [
+          "warn",
+          {
+            allowNumber: true,
+            allowBoolean: true,
+            allowNullish: true,
+          },
+        ],
+      },
+    },
+  ],
 };
